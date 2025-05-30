@@ -9,11 +9,6 @@
 - Order API: Quản lý hóa đơn
 - Authentication API: Quản lý khách hàng và token login - Quản lý role
 - API Gateway: Thông qua cổng api gateway chung
-- Diagram:
-
-![image](https://github.com/user-attachments/assets/2dfd8ff2-ad8a-4fce-ad59-80ee0ae0cf9c)
-
-
 
 Ứng dụng được xây dựng bằng .NET, sử dụng Docker để container hóa các service và kết nối với Oracle database.
 
@@ -46,6 +41,9 @@
    docker compose build
    docker compose up -d
    ```
+
+## DIAGRAM
+![image](https://github.com/user-attachments/assets/5b19cb7c-4691-41ec-9344-e84c8ca3f544)
 
 ## Cấu hình
 
