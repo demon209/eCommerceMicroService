@@ -66,7 +66,7 @@ Bao gồm:
 * `DELETE /api/products/{id}` - Xóa sản phẩm theo ID
 * `PUSH /api/products` - Thêm mới sản phẩm
 * `UPDATE /api/products/{id}` - cập nhật sản phẩm
-* Cần header Authorization với Value là Bearer + token để sử dụng DELETE/UPDATE/PUSH
+* Cần header Authorization với Value là Bearer + token để sử dụng DELETE/UPDATE/PUSH với role là Admin
 ### Order API:
 
 * `GET /api/orders/{id}` - Lấy thông tin đơn hàng chi tiết
@@ -74,7 +74,7 @@ Bao gồm:
 * `DELETE /api/orders/{id}` - Xóa đơn hàng theo ID
 * `PUSH /api/orders` - Thêm mới đơn hàng
 * `UPDATE /api/orders/{id}` - cập nhật đơn hàng
-* Cần header Authorization với Value là Bearer + token để sử dụng 
+* Cần header Authorization với Value là Bearer + token để sử dụng với role là Admin
 ### Authentication API:
 
 * `GET /api/authentications/{id}` - Lấy thông tin user theo ID
