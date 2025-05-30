@@ -4,7 +4,9 @@
 # eCommerce Microservice Project #
 
 ## Mô tả ##
-Đây là dự án microservices cơ bản cho ứng dụng thương mại điện tử, nhằm giúp mọi người nắm được bản chất cũng như cách để xây dựng một ứng dụng microservices, bao gồm các dịch vụ:
+Đây là dự án microservices cơ bản cho ứng dụng thương mại điện tử, 
+nhằm giúp mọi người nắm được bản chất cũng như cách để xây dựng một ứng dụng microservices, 
+bao gồm các dịch vụ:
 - Product API: Quản lý sản phẩm
 - Order API: Quản lý hóa đơn
 - Authentication API: Quản lý khách hàng và token login - Quản lý role
