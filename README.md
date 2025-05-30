@@ -59,7 +59,7 @@ Polly để retry và resilience khi gọi các API nội bộ
 Serilog để logging
 
 Liên hệ
-Nếu có thắc mắc hoặc góp ý, vui lòng liên hệ qua email: your.email@example.com
+Nếu có thắc mắc hoặc góp ý, vui lòng liên hệ qua email: vuquan150904@gmail.com
 
 README này có thể được chỉnh sửa và bổ sung theo tiến độ phát triển dự án.
 
