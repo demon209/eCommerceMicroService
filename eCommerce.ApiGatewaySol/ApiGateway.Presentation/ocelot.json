@@ -1,0 +1,171 @@
+{
+    // Cấu hình Api GateWay tự định hướng api cho mỗi lần gọi
+    "Routes": [
+
+
+        // JWT Authentications
+
+        {
+            "DownstreamPathTemplate": "/api/authentications/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authentication-service",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authentications/{everything}",
+            "UpstreamHttpMethod": [ "GET", "POST" ],
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "60s",
+                "Limit": 1,
+                "PeriodTimespan": 10
+            }
+        },
+
+
+
+        // Product Api - not limit
+        // GET METHOD
+        {
+            "DownstreamPathTemplate": "/api/products",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "product-service",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/api/products",
+            "UpstreamHttpMethod": [ "GET" ],
+            "FileCacheOptions": {
+                "TtlSeconds": 60,
+                "Region": "default",
+                "Header": "eCommerce-Caching-Control"
+            }
+        },
+
+        // Get product by ID
+        {
+            "DownstreamPathTemplate": "/api/products/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "product-service",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/api/products/{id}",
+            "UpstreamHttpMethod": [ "GET" ],
+            "FileCacheOptions": {
+                "TtlSeconds": 60,
+                "Region": "default",
+                "Header": "eCommerce-Caching-Control"
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/products/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "product-service",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/api/products/{everything}",
+            "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+            "AddHeadersToRequest": {
+                "Authorization": "Bearer {token}" // Chuyển tiếp token
+            }
+        },
+
+        // Order Api - GET
+        {
+            "DownstreamPathTemplate": "/api/orders",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "order-service",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/api/orders",
+            "UpstreamHttpMethod": [ "GET" ],
+            "FileCacheOptions": {
+                "TtlSeconds": 20,
+                "Region": "default",
+                "Header": "eCommerce-Caching-Control"
+            },
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+            "AddHeadersToRequest": {
+                "Authorization": "Bearer {token}" // Chuyển tiếp token
+            }
+        },
+
+        // Order Api - GET by id
+        {
+            "DownstreamPathTemplate": "/api/orders/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "order-service",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/api/orders/{id}",
+            "UpstreamHttpMethod": [ "GET" ],
+            "FileCacheOptions": {
+                "TtlSeconds": 60,
+                "Region": "default",
+                "Header": "eCommerce-Caching-Control"
+            },
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+            "AddHeadersToRequest": {
+                "Authorization": "Bearer {token}" // Chuyển tiếp token
+            }
+        },
+
+        // Order Api - POST, PUT, DELETE
+        {
+            "DownstreamPathTemplate": "/api/orders/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "order-service",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/api/orders/{everything}",
+            "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+            "AddHeadersToRequest": {
+                "Authorization": "Bearer {token}" // Chuyển tiếp token
+            }
+        }
+
+    ],
+
+
+    "GlobalConfiguration": {
+        "BaseUrl": "https://localhost:5003",
+        "RateLimitOptions": {
+            "QuotaExceededMessage": "You are overwhelming me with multiple requests. Relax =))"
+        }
+    }
+}

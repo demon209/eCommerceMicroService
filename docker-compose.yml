@@ -1,0 +1,48 @@
+﻿
+services:
+  product-service:
+    container_name: products-api-container
+    image: products-api-img
+    build:
+      context: .
+      dockerfile: eCommerce.ProductApiSol/Dockerfile
+    ports:
+      - "5001:8080"  # 5001 bên ngoài, 8080 trong app
+    networks:
+      - ecommerce-network
+  order-service:
+    container_name: orders-api-container
+    image: orders-api-img
+    build:
+        context: .
+        dockerfile: eCommerce.OrderApiSol/Dockerfile
+    ports:
+        - "5002:8080"
+    networks:
+        - ecommerce-network
+  authentication-service:
+    container_name: authentications-api-container
+    image: authentications-api-img
+    build:
+        context: .
+        dockerfile: eCommerce.AuthenticationApiSol/Dockerfile
+    ports:
+        - "5000:8080"
+    networks:
+        - ecommerce-network
+  api-gateway:
+    container_name: api-gateway-container
+    image: api-gateway-img
+    build:
+      context: .
+      dockerfile: eCommerce.ApiGatewaySol/Dockerfile
+    ports:
+      - "5003:5003"  # 5003 bên ngoài,
+    depends_on:
+      - product-service
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    driver: bridge
