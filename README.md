@@ -1,3 +1,6 @@
+
+
+````markdown
 # eCommerce Microservice Project
 
 ## Mô tả
@@ -21,51 +24,59 @@
 - `eCommerce.ApiGatewaySol/` - API Gateway tổng hợp các dịch vụ
 
 ## Hướng dẫn cài đặt và chạy
+
 1. Clone project về:
    ```bash
    git clone https://github.com/demon209/eCommerceMicroService.git
    cd eCommerceMicroService
-Build và chạy các container bằng Docker Compose:
-```bash
+````
+
+2. Build và chạy các container bằng Docker Compose:
+
+   ```bash
    docker-compose up --build
+   ```
 
+## Cấu hình
 
-Cấu hình
-Các biến cấu hình nằm trong appsettings.json từng dịch vụ.
+Các biến cấu hình nằm trong file `appsettings.json` của từng dịch vụ.
 
-Cấu hình kết nối database, API Gateway, JWT authentication...
+Bao gồm:
 
-API
-Product API:
+* Cấu hình kết nối database
+* Cấu hình API Gateway
+* Cấu hình JWT authentication
 
-GET /api/products/{id} - Lấy thông tin sản phẩm theo ID
+## API - GET POST UPDATE DELETE
 
-Order API:
+### Product API:
 
-GET /api/orders/{id} - Lấy thông tin đơn hàng chi tiết
+* `GET /api/products/{id}` - Lấy thông tin sản phẩm theo ID
 
-Authentication API:
+### Order API:
 
-GET /api/authentications/{id} - Lấy thông tin user theo ID
+* `GET /api/orders/{id}` - Lấy thông tin đơn hàng chi tiết
 
-API Gateway:
+### Authentication API:
 
-Tổng hợp và định tuyến các yêu cầu tới các dịch vụ phía sau
+* `GET /api/authentications/{id}` - Lấy thông tin user theo ID
 
-Công cụ hỗ trợ
-Polly để retry và resilience khi gọi các API nội bộ
+### API Gateway:
 
-Serilog để logging
+* Tổng hợp và định tuyến các yêu cầu tới các dịch vụ phía sau
 
-Liên hệ
-Nếu có thắc mắc hoặc góp ý, vui lòng liên hệ qua email: vuquan150904@gmail.com
+## Công cụ hỗ trợ
+
+* Polly: Retry và resilience khi gọi các API nội bộ
+* Serilog: Logging
+
+## Liên hệ
+
+Nếu có thắc mắc hoặc góp ý, vui lòng liên hệ qua email: **[vuquan150904@gmail.com](mailto:vuquan150904@gmail.com)**
+
+---
 
 README này có thể được chỉnh sửa và bổ sung theo tiến độ phát triển dự án.
 
-
-
-
-
-
-
+```
 
