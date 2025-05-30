@@ -64,13 +64,11 @@ namespace ProductApi.Presentation.Controllers
             return response.Flag is true ? Ok(response) : BadRequest(response);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id:int}")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<Response>> DeleteProduct(ProductDTO product)
+        public async Task<ActionResult<Response>> DeleteProduct(int id)
         {
-            // convert to entity 
-            var getEntity = ProductConversion.ToEntity(product);
-            var response = await productInterface.DeleteAsync(getEntity);
+            var response = await productInterface.DeleteAsync(id);
             return response.Flag is true ? Ok(response) : BadRequest(response);
         }
     }

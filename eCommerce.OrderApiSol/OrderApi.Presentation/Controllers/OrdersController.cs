@@ -50,8 +50,20 @@ namespace OrderApi.Presentation.Controllers
         {
             if (orderId <= 0)
                 return BadRequest("Invalid data provided");
-            var orderDetail = await orderService.GetOrderDetails(orderId);
-            return orderDetail.OrderId > 0 ? Ok(orderDetail) : NotFound("No order found");
+            try
+            {
+                var orderDetail = await orderService.GetOrderDetails(orderId);
+
+                if (orderDetail == null || orderDetail.OrderId <= 0)
+                    return NotFound("No order found.");
+
+                return Ok(orderDetail);
+            }
+            catch (Exception ex)
+            {
+                // Trả về lỗi chi tiết từ service, ví dụ: không lấy được product
+                return BadRequest($"Error fetching order details: {ex.Message}");
+            }
 
         }
 
@@ -83,12 +95,11 @@ namespace OrderApi.Presentation.Controllers
             return response.Flag ? Ok(response) : BadRequest(response);
         }
 
-        [HttpDelete]
-        public async Task<ActionResult<Response>> DeletedOrder(OrderDTO orderDTO)
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<Response>> DeletedOrder(int id)
         {
             // convert from dto to entity
-            var order = OrderConversion.ToEntity(orderDTO);
-            var response = await orderInterface.DeleteAsync(order);
+            var response = await orderInterface.DeleteAsync(id);
             return response.Flag? Ok(response) : BadRequest(response);
         }
     }

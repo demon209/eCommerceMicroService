@@ -32,15 +32,15 @@ namespace OrderApi.Infrastructure.Repositories
 
         }
 
-        public async Task<Response> DeleteAsync(Order entity)
+        public async Task<Response> DeleteAsync(int id)
         {
             try
             {
-                var order = await FindByIdAsync(entity.Id);
+                var order = await FindByIdAsync(id);
                 if (order == null)
                     return new Response(false, "Order not found");
 
-                context.Orders.Remove(entity);
+                context.Orders.Remove(order);
                 await context.SaveChangesAsync();
                 return new Response(true, "Order successfully deleted");
 

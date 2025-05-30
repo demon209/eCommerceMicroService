@@ -43,7 +43,7 @@ namespace eCommerceSharedLibrary.DependencyInjection
 
             // Register middleware to block all outsiders API calls
             // Chỉ cho gọi API qua ApiGateway
-            app.UseMiddleware<ListenToOnlyApiGateway>();
+            //app.UseMiddleware<ListenToOnlyApiGateway>();
 
             return app;
         }

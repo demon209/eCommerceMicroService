@@ -41,18 +41,18 @@ namespace ProductApi.Infrastructure.Repositories
             }
         }
 
-        public async Task<Response> DeleteAsync(Product entity)
+        public async Task<Response> DeleteAsync(int id)
         {
             try
             {
-                var product = await FindByIdAsync(entity.Id);
+                var product = await FindByIdAsync(id);
                 if(product == null)
                 {
-                    return new Response(false, $"{entity.Name} not found");
+                    return new Response(false, $"{product!.Name} not found");
                 }
-                context.Products.Remove(entity);
+                context.Products.Remove(product);
                 await context.SaveChangesAsync();
-                return new Response(true, $"{entity.Name} is deleted successfully");
+                return new Response(true, $"{product!.Name} is deleted successfully");
             }
             catch (Exception ex)
             {
