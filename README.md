@@ -1,9 +1,9 @@
 
 
 ````markdown
-# eCommerce Microservice Project
+# eCommerce Microservice Project #
 
-## Mô tả
+## Mô tả ##
 Đây là dự án microservices cơ bản cho ứng dụng thương mại điện tử, nhằm giúp mọi người nắm được bản chất cũng như cách để xây dựng một ứng dụng microservices, bao gồm các dịch vụ:
 - Product API: Quản lý sản phẩm
 - Order API: Quản lý hóa đơn
@@ -12,17 +12,18 @@
 
 Ứng dụng được xây dựng bằng .NET, sử dụng Docker để container hóa các service và kết nối với Oracle database.
 
-## Yêu cầu
+## Yêu cầu ##
 - .NET 7.0 SDK hoặc mới hơn
 - Docker & Docker Compose
 - Oracle Database (hoặc kết nối đến Oracle DB)
 
-## Cấu trúc thư mục
-- `eCommerce.ProductApiSol/` - Dịch vụ quản lý sản phẩm
-- `eCommerce.OrderApiSol/` - Dịch vụ quản lý đơn hàng
-- `eCommerce.AuthenticationApiSol/` - Dịch vụ xác thực người dùng
-- `eCommerce.ApiGatewaySol/` - API Gateway tổng hợp các dịch vụ
-- `eCommerce.SharedLibraSol/` - Thư viện dùng chung cho các microservices
+## Cấu trúc thư mục ##
+eCommerceMicroservice
+|- `eCommerce.ProductApiSol/` - Dịch vụ quản lý sản phẩm
+|- `eCommerce.OrderApiSol/` - Dịch vụ quản lý đơn hàng
+|- `eCommerce.AuthenticationApiSol/` - Dịch vụ xác thực người dùng
+|- `eCommerce.ApiGatewaySol/` - API Gateway tổng hợp các dịch vụ
+|- `eCommerce.SharedLibraSol/` - Thư viện dùng chung cho các microservices
 ````
 
 
