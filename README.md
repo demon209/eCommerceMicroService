@@ -26,9 +26,8 @@
    git clone https://github.com/demon209/eCommerceMicroService.git
    cd eCommerceMicroService
 Build và chạy các container bằng Docker Compose:
-
-docker-compose up --build
-Các service sẽ được chạy trên các port:
+```bash
+   docker-compose up --build
 
 
 Cấu hình
