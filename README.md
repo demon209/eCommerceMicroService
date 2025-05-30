@@ -11,6 +11,9 @@
 - API Gateway: Thông qua cổng api gateway chung
 - Diagram:
 
+![image](https://github.com/user-attachments/assets/2dfd8ff2-ad8a-4fce-ad59-80ee0ae0cf9c)
+
+
 
 Ứng dụng được xây dựng bằng .NET, sử dụng Docker để container hóa các service và kết nối với Oracle database.
 
